@@ -16,29 +16,30 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Dashboard App - Next.js 14",
-    template: "%s | Dashboard App"
+    default: "Aawiz – AI HR Platform",
+    template: "%s | Aawiz"
   },
-    icons: {
+  description:
+    "Aawiz is an AI-powered HR platform that helps teams manage hiring, employee performance, and daily workflows with simple, intuitive tools.",
+  icons: {
     icon: "/aawiz_logo.jpg",
   },
-  description: "A modern dashboard application built with Next.js 14, featuring authentication, data visualization, and dark mode support.",
-  keywords: ["Next.js", "React", "Dashboard", "TypeScript", "Tailwind CSS"],
-  authors: [{ name: "Dashboard App" }],
-  creator: "Dashboard App",
+  authors: [{ name: "Aawiz" }],
+  creator: "Aawiz",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://example.com",
-    title: "Dashboard App - Next.js 14",
-    description: "A modern dashboard application built with Next.js 14",
-    siteName: "Dashboard App",
+    url: "https://aawiz.com",
+    title: "Aawiz – AI HR Platform",
+    description:
+      "Aawiz provides smart tools for hiring, managing employees, and improving team productivity.",
+    siteName: "Aawiz",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dashboard App - Next.js 14",
-    description: "A modern dashboard application built with Next.js 14",
-    creator: "@dashboardapp",
+    title: "Aawiz – AI HR Platform",
+    description:
+      "Aawiz helps teams simplify hiring and employee management using AI.",
   },
   robots: {
     index: true,
@@ -52,7 +53,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <Script
           crossOrigin="anonymous"
