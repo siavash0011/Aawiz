@@ -88,8 +88,8 @@ export default function Home() {
         {/* Features Cards */}
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
           <Card className="transition-shadow hover:shadow-lg">
-            <CardHeader>
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+            <CardHeader >
+              <div className="w-12 h-12 rounded-lg bg-primary/10 mx-auto flex items-center justify-center mb-4">
                 <User className="h-6 w-6 text-primary" />
               </div>
               <CardTitle>User Authentication</CardTitle>
@@ -98,7 +98,7 @@ export default function Home() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Link href="/login">
+              <Link href="/login" className="w-full">
                 <Button className="w-full">Login</Button>
               </Link>
             </CardContent>
@@ -106,7 +106,7 @@ export default function Home() {
 
           <Card className="transition-shadow hover:shadow-lg">
             <CardHeader>
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex mx-auto items-center justify-center mb-4">
                 <BarChart3 className="h-6 w-6 text-primary" />
               </div>
               <CardTitle>Live Dashboard</CardTitle>
@@ -121,7 +121,7 @@ export default function Home() {
 
           <Card className="transition-shadow hover:shadow-lg">
             <CardHeader>
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center mx-auto justify-center mb-4">
                 <Palette className="h-6 w-6 text-primary" />
               </div>
               <CardTitle>Dark Mode</CardTitle>
