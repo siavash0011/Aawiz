@@ -59,11 +59,28 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        {/* 🔥 Dark-mode fix for Vercel (runs BEFORE hydration) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const theme = localStorage.getItem('theme');
+                if (theme === 'dark') {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+
         <Script
           crossOrigin="anonymous"
           src="//unpkg.com/same-runtime/dist/index.global.js"
         />
       </head>
+
       <body suppressHydrationWarning className="antialiased">
         <ClientBody>{children}</ClientBody>
       </body>
