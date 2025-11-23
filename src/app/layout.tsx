@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     default: "Dashboard App - Next.js 14",
     template: "%s | Dashboard App"
   },
+    icons: {
+    icon: "/aawiz_logo.jpg",
+  },
   description: "A modern dashboard application built with Next.js 14, featuring authentication, data visualization, and dark mode support.",
   keywords: ["Next.js", "React", "Dashboard", "TypeScript", "Tailwind CSS"],
   authors: [{ name: "Dashboard App" }],
