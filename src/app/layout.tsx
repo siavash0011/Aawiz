@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientBody from "./ClientBody";
 import Script from "next/script";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -83,6 +83,7 @@ export default function RootLayout({
 
       <body suppressHydrationWarning className="antialiased">
         <ClientBody>{children}</ClientBody>
+          <SpeedInsights />
       </body>
     </html>
   );
