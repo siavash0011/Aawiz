@@ -45,14 +45,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setIsLoading(false);
   }, []);
 
-  // Signup function
+  // Signup
   const signup = async (name: string, email: string, password: string) => {
     setIsLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 500)); // simulate API
+    await new Promise(res => setTimeout(res, 500));
 
-    if (!name || !email || !password) throw new Error('All fields are required');
-
-    // Load existing users
     const usersStr = localStorage.getItem('users');
     const users: UserWithPassword[] = usersStr ? JSON.parse(usersStr) : [];
 
@@ -65,28 +62,22 @@ export function AuthProvider({ children }: AuthProviderProps) {
       id: Date.now().toString(),
       name,
       email,
-      password, // in real apps, hash passwords!
+      password,
     };
 
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
 
-    // Set current user
-    const currentUser = { id: newUser.id, name: newUser.name, email: newUser.email };
+    const currentUser: User = { id: newUser.id, name: newUser.name, email: newUser.email };
     setUser(currentUser);
     localStorage.setItem('user', JSON.stringify(currentUser));
     setIsLoading(false);
   };
 
-  // Login function
+  // Login
   const login = async (email: string, password: string) => {
     setIsLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 500)); // simulate API
-
-    if (!email || !password) {
-      setIsLoading(false);
-      throw new Error('Email and password are required');
-    }
+    await new Promise(res => setTimeout(res, 500));
 
     const usersStr = localStorage.getItem('users');
     const users: UserWithPassword[] = usersStr ? JSON.parse(usersStr) : [];
@@ -98,21 +89,31 @@ export function AuthProvider({ children }: AuthProviderProps) {
       throw new Error('Invalid email or password');
     }
 
-    const currentUser = { id: found.id, name: found.name, email: found.email };
+    const currentUser: User = { id: found.id, name: found.name, email: found.email };
+
     setUser(currentUser);
     localStorage.setItem('user', JSON.stringify(currentUser));
+
     setIsLoading(false);
   };
 
+  // Logout
   const logout = () => {
     setUser(null);
     localStorage.removeItem('user');
   };
 
-  const isAuthenticated = Boolean(user);
-
   return (
-    <AuthContext.Provider value={{ user, login, signup, logout, isAuthenticated, isLoading }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        login,
+        signup,
+        logout,
+        isAuthenticated: Boolean(user),
+        isLoading,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
